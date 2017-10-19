@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+<config>
+  <menu>
+    <rbcommunications translate="title" module="patchalert">
+
+      <title>R&amp;B Communications</title>
+      <sort_order>100</sort_order>
+
+      <children>
+
+        <patchalert_config>
+          <title>Patch Alert Configuration</title>
+          <sort_order>40</sort_order>
+          <action>adminhtml/system_config/edit/section/patchalert</action>
+        </patchalert_config>
+
+      </children>
+
+    </rbcommunications>
+  </menu>
+
+  <acl>
+    <resources>
+
+      <all>
+        <title>Allow Everything</title>
+      </all>
+
+      <admin>
+        <children>
+
+          <system>
+            <children>
+              <config>
+                <children>
+                  <patchalert>
+                    <title>Patch Alert Configuration</title>
+                  </patchalert>
+                </children>
+              </config>
+            </children>
+          </system>
+
+          <rbcommunications translate="title" module="patchalert">
+            <title>R&amp;B Communications</title>
+            <sort_order>100</sort_order>
+            <children>
+            </children>
+          </rbcommunications>
+
+        </children>
+      </admin>
+      
+    </resources>
+  </acl>
+
+</config>

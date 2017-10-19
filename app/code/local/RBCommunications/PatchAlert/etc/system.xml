@@ -1,0 +1,70 @@
+<config>
+  <tabs>
+    <rbcommunications translate="label" module="patchalert">
+      <label>R&amp;B Communications</label>
+      <sort_order>9999</sort_order>
+    </rbcommunications>
+  </tabs>
+
+  <sections>
+    <patchalert translate="label" module="patchalert">
+
+      <label>Patch Alert</label>
+      <tab>rbcommunications</tab>
+      <frontend_type>text</frontend_type>
+      <sort_order>9999</sort_order>
+      <show_in_default>1</show_in_default>
+      <show_in_website>1</show_in_website>
+      <show_in_store>1</show_in_store>
+
+      <groups>
+
+        <config translate="label">
+          <label>Patch Alert Configuration</label>
+          <frontend_type>text</frontend_type>
+          <sort_order>1</sort_order>
+          <show_in_default>1</show_in_default>
+          <show_in_website>1</show_in_website>
+          <show_in_store>1</show_in_store>
+
+          <fields>
+
+            <enabled>
+              <label>Enabled</label>
+              <comment>Enable or disable the alerts</comment>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_enabledisable</source_model>
+              <sort_order>100</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </enabled>
+
+            <to_name>
+              <label>To Name</label>
+              <comment>Name of the alert recipient</comment>
+              <frontend_type>text</frontend_type>
+              <sort_order>110</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </to_name>
+
+            <to_email>
+              <label>To Email</label>
+              <comment>Email address of the alert recipient</comment>
+              <frontend_type>text</frontend_type>
+              <sort_order>120</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </to_email>
+
+          </fields>
+        </config>
+
+      </groups>
+
+    </patchalert>
+  </sections>
+</config>

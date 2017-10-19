@@ -1,0 +1,8 @@
+<config>
+  <modules>
+    <RBCommunications_PatchAlert>
+      <active>true</active>
+      <codePool>local</codePool>
+    </RBCommunications_PatchAlert>
+  </modules>
+</config>

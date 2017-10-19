@@ -1,0 +1,88 @@
+<?xml version="1.0" ?>
+<config>
+
+  <modules>
+    <RBCommunications_PatchAlert>
+      <version>0.0.1</version>
+    </RBCommunications_PatchAlert>
+  </modules>
+
+  <global>
+
+    <blocks>
+      <patchalert>
+        <class>RBCommunications_PatchAlert_Block</class>
+      </patchalert>
+    </blocks>
+
+    <helpers>
+      <patchalert>
+        <class>RBCommunications_PatchAlert_Helper</class>
+      </patchalert>
+    </helpers>
+
+    <models>
+      <patchalert>
+        <class>RBCommunications_PatchAlert_Model</class>
+      </patchalert>
+    </models>
+
+    <template>
+      <email>
+        <patchalert_email_template translate="label" module="patchalert">
+          <label>R&amp;B Communications Inventory Sync Email</label>
+          <file>rbcommunications/patchalert/patchalert.html</file>
+          <type>html</type>
+        </patchalert_email_template>
+      </email>
+    </template>
+
+  </global>
+
+  <default>
+    <patchalert>
+      <patchalertconfig>
+        <enabled>1</enabled>
+        <to_name>R&amp;B Developers</to_name>
+        <to_email>dev@rb-com.com</to_email>
+      </patchalertconfig>
+    </patchalert>
+  </default>
+
+  <admin>
+    <routers>
+      <adminhtml>
+        <args>
+          <modules>
+            <RBCommunications_PatchAlert after="Mage_Adminhtml">RBCommunications_PatchAlert_Adminhtml</RBCommunications_PatchAlert>
+          </modules>
+        </args>
+      </adminhtml>
+    </routers>
+  </admin>
+
+  <crontab>
+    <jobs>
+      <!-- Check for unapplied patches every Monday -->
+      <checkunapplied>
+        <schedule>
+          <cron_expr>15 5 * * 1</cron_expr>
+        </schedule>
+        <run>
+          <model>patchalert/observer::checkForUnappliedPatches</model>
+        </run>
+      </checkunapplied>
+
+      <!-- Check for new patches (last 24 hrs) every morning -->
+      <checknew>
+        <schedule>
+          <cron_expr>00 5 * * *</cron_expr>
+        </schedule>
+        <run>
+          <model>patchalert/observer::checkForNewPatch</model>
+        </run>
+      </checknew>
+    </jobs>
+  </crontab>
+
+</config>
